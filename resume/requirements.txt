@@ -4,3 +4,4 @@ PyMuPDF
 spacy
 sentence-transformers
 torch
+torchvision
