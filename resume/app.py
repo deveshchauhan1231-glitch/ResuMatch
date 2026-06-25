@@ -4,6 +4,8 @@ import fitz
 import spacy
 from spacy.matcher import PhraseMatcher
 from sentence_transformers import SentenceTransformer, util
+from pathlib import Path
+
 
 st.set_page_config(page_title="ResuMatch", layout="wide")
 st.title("ResuMatch")
@@ -16,7 +18,8 @@ st.divider()
 # ─────────────────────────────────────────────
 @st.cache_resource
 def load_dataset():
-    df = pd.read_csv("india_job_market_tech_skills.csv")
+    DATA_FILE = Path(__file__).parent / "india_job_market_tech_skills.csv"
+    df = pd.read_csv(DATA_FILE)
     skills_dataset = [skill.strip() for sublist in df['Skills_Required'] for skill in sublist.split(",")]
     edu_dataset    = [edu.strip()   for sublist in df['Education_Required'] for edu in sublist.split("/")]
     roles          = df['Job_Title']
