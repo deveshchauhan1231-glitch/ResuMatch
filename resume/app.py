@@ -5,8 +5,8 @@ import spacy
 from spacy.matcher import PhraseMatcher
 from sentence_transformers import SentenceTransformer, util
 
-st.set_page_config(page_title="ResuMatch", page_icon="🎯", layout="wide")
-st.title("🎯 ResuMatch")
+st.set_page_config(page_title="ResuMatch", layout="wide")
+st.title("ResuMatch")
 st.caption("Drop your resume. Paste the JD. See how you stack up.")
 st.divider()
 
@@ -178,7 +178,7 @@ if run:
         st.divider()
 
         # Resume vs JD side by side
-        st.subheader("📄 Resume  vs  📋 JD")
+        st.subheader(" Resume  vs   JD")
         r1, r2, r3 = st.columns(3)
 
         with r1:
@@ -202,7 +202,7 @@ if run:
         st.divider()
 
         # Missing skills
-        st.subheader("❌ Missing Skills")
+        st.subheader("Missing Skills")
         if missing:
             st.write(", ".join(sorted(missing)))
         else:
@@ -211,7 +211,7 @@ if run:
         st.divider()
 
         # Alternate career paths
-        st.subheader("🔀 Alternate Career Paths")
+        st.subheader("Alternate Career Paths")
         if career_matches:
             sorted_careers = sorted(career_matches.items(), key=lambda x: x[1], reverse=True)[:10]
             for role, score in sorted_careers:
