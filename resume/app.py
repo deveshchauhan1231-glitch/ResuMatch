@@ -154,11 +154,11 @@ if run:
                 skill_score = (0.5 * coverage_score) + (0.5 * semantic_skill_score)
             role_score  = compare(roles_found,  roles_needed,  model) if roles_found  and roles_needed  else 0
             edu_score   = compare(edu_found,    edu_needed,    model) if edu_found    and edu_needed    else 0
-            if(edu_score<0.7):
+            if(edu_score != 0 and edu_score < 0.7):
                 edu_score=edu_score*(-0.2)
             else:
                 edu_score=edu_score*(0.1)
-            if(role_score<0.4):
+            if(role_score!=0 and role_score<0.4):
                 role_score=role_score*(-0.2)
             else:
                 role_score=role_score*(0.2)
